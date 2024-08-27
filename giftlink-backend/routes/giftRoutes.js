@@ -1,6 +1,10 @@
+const express = require("express");
+const router = express.Router();
 const connectToDatabase = require("../models/db.js");
+const logger = require("../logger.js");
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
+  logger.info("/ called");
   try {
     // Task 1: Connect to MongoDB and store connection to db constant
     // const db = {{insert code here}}
@@ -12,7 +16,7 @@ router.get("/", async (req, res) => {
 
     // Task 3: Fetch all gifts using the collection.find method. Chain with toArray method to convert to JSON array
     // const gifts = {{insert code here}}
-    const gifts = await collection.find().toArray();
+    const gifts = await collection.find({}).toArray();
 
     // Task 4: return the gifts using the res.json method
 
@@ -20,12 +24,14 @@ router.get("/", async (req, res) => {
     //   res.json(/* {{insert code here}} */);
     res.json(gifts);
   } catch (e) {
-    console.error("Error fetching gifts:", e);
-    res.status(500).send("Error fetching gifts");
+    // console.error("Error fetching gifts:", e);
+    // res.status(500).send("Error fetching gifts");
+    logger.console.error("oops something went wrong", e);
+    next(e);
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res, next) => {
   try {
     // Task 1: Connect to MongoDB and store connection to db constant
     // const db = {{insert code here}}
@@ -46,8 +52,9 @@ router.get("/:id", async (req, res) => {
 
     res.json(gift);
   } catch (e) {
-    console.error("Error fetching gift:", e);
-    res.status(500).send("Error fetching gift");
+    // console.error("Error fetching gift:", e);
+    // res.status(500).send("Error fetching gift");
+    next(e);
   }
 });
 
