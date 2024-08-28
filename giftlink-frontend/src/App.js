@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./components/HomePage/HomePage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
+import DetailsPage from "./components/DetailsPage/DetailsPage";
+import SearchPage from "./components/SearchPage/SearchPage";
 
 function App() {
   const location = useLocation();
@@ -23,8 +25,10 @@ function App() {
             {/* the final code will not pass the products to every page, but each page will call the server API */}
             <Route path="/" element={<MainPage />} />
             <Route path="/app" element={<MainPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/app/login" element={<LoginPage />} />
+            <Route path="/app/register" element={<RegisterPage />} />
+            <Route path="/app/product/:productId" element={<DetailsPage />} />
+            <Route path="/app/search" element={<SearchPage />} />
           </Routes>
         </>
       )}
