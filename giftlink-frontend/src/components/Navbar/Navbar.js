@@ -1,5 +1,4 @@
 import React from "react";
-import HomePage from "../HomePage/HomePage";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -19,6 +18,18 @@ export default function Navbar() {
           <li className="nav-item">
             <a className="nav-link" href="/app">
               Gifts
+            </a>{" "}
+            {/* Updated Link */}
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/register">
+              Register
+            </a>{" "}
+            {/* Updated Link */}
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/login">
+              Login
             </a>{" "}
             {/* Updated Link */}
           </li>

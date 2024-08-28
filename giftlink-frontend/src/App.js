@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./components/HomePage/HomePage";
+import LoginPage from "./components/LoginPage/LoginPage";
+import RegisterPage from "./components/RegisterPage/RegisterPage";
 
 function App() {
   const location = useLocation();
@@ -21,6 +23,8 @@ function App() {
             {/* the final code will not pass the products to every page, but each page will call the server API */}
             <Route path="/" element={<MainPage />} />
             <Route path="/app" element={<MainPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
           </Routes>
         </>
       )}
