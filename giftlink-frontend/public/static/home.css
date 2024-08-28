@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #f4f4f4; /* Updated background color */
+  /* background-color: #f4f4f4;  */
 }
 
 /* Create a pseudo-element for the background and blur */
